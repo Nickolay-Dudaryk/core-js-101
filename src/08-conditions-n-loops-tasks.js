@@ -105,8 +105,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  return ((a + b > c) && (a + c > b) && (b + c > a));
 }
 
 
@@ -341,8 +341,20 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const brackets = ['()', '[]', '{}', '<>'];
+  let result = str;
+
+  for (let i = 0; i < brackets.length; i += 1) {
+    while (result) {
+      if (result.includes(brackets[i])) {
+        result = result.replace(brackets[i], '');
+        i = 0;
+      } else break;
+    }
+  }
+
+  return !result;
 }
 
 
@@ -366,8 +378,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
